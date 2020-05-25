@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "libreria-prueba": {
+      "projectType": "library",
+      "root": "projects/libreria-prueba",
+      "sourceRoot": "projects/libreria-prueba/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/libreria-prueba/tsconfig.lib.json",
+            "project": "projects/libreria-prueba/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/libreria-prueba/src/test.ts",
+            "tsConfig": "projects/libreria-prueba/tsconfig.spec.json",
+            "karmaConfig": "projects/libreria-prueba/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/libreria-prueba/tsconfig.lib.json",
+              "projects/libreria-prueba/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "custom-library"
 }
